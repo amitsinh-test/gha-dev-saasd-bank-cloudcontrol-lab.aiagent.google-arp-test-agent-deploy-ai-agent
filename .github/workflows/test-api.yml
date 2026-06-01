@@ -13,7 +13,7 @@ jobs:
       id: auth
       uses: google-github-actions/auth@v2
       with:
-        project_id: 'f1-staging-env'
+        project_id: '623111100246' # Replace with your actual project ID
         workload_identity_provider: 'projects/623111100246/locations/global/workloadIdentityPools/github/providers/github-provider'
     
     - name: Test /agents Endpoint (Expect 400 FAILED_PRECONDITION)
@@ -23,7 +23,7 @@ jobs:
           -H "Authorization: Bearer $ACCESS_TOKEN" \
           -H "x-goog-user-project: f1-staging-env" \
           -H "Content-Type: application/json" \
-          "https://us-discoveryengine.googleapis.com/v1alpha/projects/f1-staging-env/locations/us/collections/default_collection/agents"
+          "https://us-discoveryengine.googleapis.com/v1alpha/projects/f1-staging-env/locations/us/collections/default_collection/engines/abc/assistants/default_assistant/agents"
 
     - name: Test /engines Endpoint (Expect 200 OK)
       run: |
